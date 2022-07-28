@@ -20,16 +20,16 @@ namespace Business.Concrete
         {
             if (brand.BrandName.Length < 2)
             {
-                return new ErrorResult(Messages.CarNameInvalid);
+                return new ErrorResult(Messages.BrandNameInvalid);
             }
             _brandDal.Add(brand);
 
-            return new SuccessResult(Messages.CarAdded);
+            return new SuccessResult(Messages.BrandAdded);
         }
 
         public IResult Delete(Brand brand)
         {
-            return new SuccessResult(Messages.CarDeleted);
+            return new SuccessResult(Messages.BrandDeleted);
         }
 
         public IDataResult<Brand> GetBrandId(int brandId)
@@ -43,12 +43,12 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<List<Brand>>(Messages.MaintenanceTime);
             }
-            return new SuccessDataResult<List<Brand>>(Messages.CarsListed);
+            return new SuccessDataResult<List<Brand>>(Messages.BrandListed);
         }
 
         public IResult Update(Brand brand)
         {
-            return new SuccessResult(Messages.CarUpdated);
+            return new SuccessResult(Messages.BrandUpdated);
         }
     }
 }

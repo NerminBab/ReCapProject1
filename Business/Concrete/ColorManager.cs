@@ -20,16 +20,16 @@ namespace Business.Concrete
         {
             if (color.ColorName.Length < 2)
             {
-                return new ErrorResult(Messages.CarNameInvalid);
+                return new ErrorResult(Messages.ColorNameInvalid);
             }
             _colorDal.Add(color);
 
-            return new SuccessResult(Messages.CarAdded);
+            return new SuccessResult(Messages.ColorAdded);
         }
 
         public IResult Delete(Color color)
         {
-            return new SuccessResult(Messages.CarDeleted);
+            return new SuccessResult(Messages.ColorDeleted);
         }
 
         public IDataResult<Color> GetColorId(int colorId)
@@ -43,12 +43,12 @@ namespace Business.Concrete
             {
                 return new ErrorDataResult<List<Color>>(Messages.MaintenanceTime);
             }
-            return new SuccessDataResult<List<Color>>(_colorDal.GetCars(), Messages.CarsListed);
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(), Messages.ColorListed);
         }
 
         public IResult Update(Color color)
         {
-            return new SuccessResult(Messages.CarUpdated);
+            return new SuccessResult(Messages.ColorUpdated);
         }
     }
 }

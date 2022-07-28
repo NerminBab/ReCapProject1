@@ -9,10 +9,28 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            // Car();
+
+
+            RentalManager rentalsManager = new RentalManager(new EfRentalDal());
+            var result = rentalsManager.Add(new Entities.Concrete.Rental
+            {
+                Id = 1,
+                CarId = 2,
+                CustomerId = 3,
+                RentDate = DateTime.Now,
+            });
+            Console.WriteLine(result.Message);
+           
+
+        }
+
+        private static void Car()
+        {
             CarManager carManager = new CarManager(new EfCarDal());
 
             var result = carManager.GetCarDetails();
-            if (result.Success==true)
+            if (result.Success == true)
             {
                 foreach (var car in result.Data)
                 {
@@ -24,7 +42,10 @@ namespace ConsoleUI
             {
                 Console.WriteLine(result.Message);
             }
+
             
+
+
         }
     }
 }
